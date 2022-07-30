@@ -11,13 +11,14 @@ console.log(getSavedTime)
 const player = new Player(iframe);
 console.log(player)
 
-if (getSavedTime) {
+/* if (getSavedTime) {
     player.setCurrentTime(getSavedTime);
   }
   
-  //player.on('timeupdate', throttle(onTimeUpdate, 1000));
+  player.on('timeupdate', throttle(onTimeUpdate, 1000));
   
-  /* function onTimeUpdate(time) {
+  function onTimeUpdate(time) {
     let savedPausedPlayerTime = time.seconds;
     localStorage.setItem(videoplayerCurrentTime, savedPausedPlayerTime);
-  } */
+  }
+  console.log(onTimeUpdate) */
