@@ -9,7 +9,9 @@ form.addEventListener('input', throttle(onformData, 500));
 const formData = {};
 
 function onFormSubmit(evt) {
-  console.log(JSON.parse(localStorage.getItem(FORM_KEY)));
+  const formData = new FormData(form);
+  formData.forEach((value, name) => console.log(`${name}: ${value}`));
+  //console.log(JSON.parse(localStorage.getItem(FORM_KEY)));
   evt.preventDefault(); // отправка формы
   evt.currentTarget.reset(); // очищаем форму
   localStorage.removeItem(FORM_KEY);
@@ -28,4 +30,4 @@ function dataLocalStorage() {
     email.value = data.email;
     message.value = data.message;
   }
-};
+}
