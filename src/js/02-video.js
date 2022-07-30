@@ -15,9 +15,9 @@ if (getSavedTime) {
     player.setCurrentTime(getSavedTime);
   }
   
-  player.on('timeupdate', throttle(onTimeUpdate, 1000));
+  //player.on('timeupdate', throttle(onTimeUpdate, 1000));
   
-  function onTimeUpdate(time) {
+  /* function onTimeUpdate(time) {
     let savedPausedPlayerTime = time.seconds;
     localStorage.setItem(videoplayerCurrentTime, savedPausedPlayerTime);
-  }
+  } */
