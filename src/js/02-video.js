@@ -11,7 +11,7 @@ console.log(getSavedTime)
 const player = new Player(iframe);
 console.log(player)
 
-/* if (getSavedTime) {
+if (getSavedTime) {
     player.setCurrentTime(getSavedTime);
   }
   
@@ -21,4 +21,4 @@ console.log(player)
     let savedPausedPlayerTime = time.seconds;
     localStorage.setItem(videoplayerCurrentTime, savedPausedPlayerTime);
   }
-  console.log(onTimeUpdate) */
+  console.log(onTimeUpdate)
