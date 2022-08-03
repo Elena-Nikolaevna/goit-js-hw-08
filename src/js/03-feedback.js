@@ -2,6 +2,45 @@ import throttle from 'lodash.throttle';
 
 const FORM_KEY = 'feedback-form-state';
 
+const formData = {};
+
+const refs = {
+  form: document.querySelector('.feedback-form'),
+  textarea: document.querySelector('.feedback-form textarea'),
+};
+refs.form.addEventListener('submit', onFormSubmit);
+refs.textarea.addEventListener('input', throttle(onTextareaInput, 500));
+
+refs.form.addEventListener('input', e => {
+  //console.log(e.target.name);
+  //console.log(e.target.value);
+  formData[e.target.name] = e.target.value;
+  console.log(formData)
+});
+
+populateTextarea();
+
+function onFormSubmit(evt) {
+  evt.preventDefault();
+  console.log('URA');
+  evt.currentTarget.reset();
+  localStorage.removeItem('FORM_KEY');
+}
+function onTextareaInput(evt) {
+  const message = evt.target.value;
+
+  localStorage.setItem('FORM_KEY', message);
+}
+function populateTextarea() {
+  const savedMessage = localStorage.getItem('FORM_KEY');
+  if (savedMessage) {
+    //console.log(savedMessage);
+    refs.textarea.value = savedMessage;
+  }
+}
+
+/* const FORM_KEY = 'feedback-form-state';
+
 const form = document.querySelector('.feedback-form');
 form.addEventListener('submit', onFormSubmit);
 form.addEventListener('input', throttle(onformData, 500));
@@ -31,3 +70,4 @@ function dataLocalStorage() {
     message.value = data.message;
   }
 }
+ */
